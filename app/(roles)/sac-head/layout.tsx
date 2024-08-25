@@ -1,7 +1,4 @@
-import Image from "next/image";
-
 import { MailComponent } from "./mail";
-import { accounts, mails } from "./data";
 
 export default function RootLayout({
   children,
