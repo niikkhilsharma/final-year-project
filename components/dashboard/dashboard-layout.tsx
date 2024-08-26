@@ -14,23 +14,27 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { Nav } from "./nav";
+import {
+  SacHeadDashboardLink,
+  StudentDashboardLink,
+  ClubAdminDashboardLinks,
+} from "@/lib/dashboard-links";
 
-interface MailProps {
-  account: {
-    email: string;
-    profileUrl: string;
-  };
+interface LayoutProps {
+  user: any;
   defaultLayout: number[] | undefined;
   defaultCollapsed?: boolean;
   navCollapsedSize: number;
+  currentPanel: string;
 }
 
-export function MailComponent({
-  account,
+export function DashBoardLayout({
+  user,
   defaultLayout = [30, 70],
   defaultCollapsed = false,
   navCollapsedSize,
-}: MailProps) {
+  currentPanel,
+}: LayoutProps) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
 
   return (
@@ -73,31 +77,18 @@ export function MailComponent({
           ) : (
             <h1 className="px-4 py-3 text-2xl font-bold italic">CampusLink</h1>
           )}
-          {/* <Separator /> */}
 
           <Nav
             className="my-2"
             isCollapsed={isCollapsed}
-            links={[
-              {
-                title: "Dashboard",
-                label: "128",
-                icon: LayoutDashboardIcon,
-                variant: "default",
-              },
-              {
-                title: "Profile",
-                label: "9",
-                icon: CircleUser,
-                variant: "ghost",
-              },
-              {
-                title: "Settings",
-                label: "",
-                icon: Settings,
-                variant: "ghost",
-              },
-            ]}
+            currentPanel={currentPanel}
+            links={
+              user.role === "SACHEAD"
+                ? SacHeadDashboardLink
+                : user.role === "STUDENT"
+                  ? StudentDashboardLink
+                  : ClubAdminDashboardLinks
+            }
           />
           <div
             className={cn(
@@ -106,10 +97,10 @@ export function MailComponent({
             )}
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage src={account.profileUrl} />
+              <AvatarImage src={user?.image || ""} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            {!isCollapsed && <div className="w-full pl-2">{account.email}</div>}
+            {!isCollapsed && <div className="w-full pl-2">{user.email}</div>}
           </div>
         </ResizablePanel>
 

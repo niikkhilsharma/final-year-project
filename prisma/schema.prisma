@@ -14,12 +14,20 @@ datasource db {
   directUrl = env("SUPABASE_DIRECT_URL")
 }
 
+enum UserRole {
+  USER
+  CLUBHEAD
+  SACHEAD
+}
+
 model User {
   id            String          @id @default(cuid())
   name          String?
   email         String          @unique
   emailVerified DateTime?
   image         String?
+  role          UserRole?
+  collegeId     String?
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
@@ -27,6 +35,7 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  College   College?
 }
 
 model Account {
@@ -82,4 +91,21 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, credentialID])
+}
+
+model College {
+  collegeId   String  @unique @default(cuid())
+  createdBy   String  @unique
+  collegeName String
+  city        String
+  state       String
+  country     String
+  image       String?
+  websiteUrl  String
+  about       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [createdBy], references: [email], onDelete: NoAction)
 }

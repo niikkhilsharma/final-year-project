@@ -45,7 +45,7 @@ const EmailForm = ({ loginFor }: { loginFor: string }) => {
     await signIn("resend", {
       email: values.email,
       redirect: false,
-      callbackUrl: "/" + redirectUrl,
+      callbackUrl: "/" + redirectUrl + `?role=SACHEAD&selectedPanel=dashboard`,
     });
     setMailSent(true);
 

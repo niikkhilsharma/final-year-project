@@ -11,9 +11,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       from: "nikhil@sac.nikkhil.tech",
     }),
   ],
-  // callbacks: {
-  //   signIn({ profile }) {
-  //     return profile.email.endsWith("@rtu.ac.in");
-  //   },
-  // },
 });

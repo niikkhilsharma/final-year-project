@@ -14,15 +14,15 @@ import {
 interface NavProps {
   isCollapsed: boolean;
   className?: string;
+  currentPanel: string;
   links: {
     title: string;
     label?: string;
     icon: LucideIcon;
-    variant: "default" | "ghost";
   }[];
 }
 
-export function Nav({ links, isCollapsed, className }: NavProps) {
+export function Nav({ links, isCollapsed, className, currentPanel }: NavProps) {
   return (
     <div
       data-collapsed={isCollapsed}
@@ -37,11 +37,17 @@ export function Nav({ links, isCollapsed, className }: NavProps) {
             <Tooltip key={index} delayDuration={0}>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
+                  href={`/sac-head?currentPanel=${link.title.toLowerCase()}`}
                   className={cn(
-                    buttonVariants({ variant: link.variant, size: "icon" }),
+                    buttonVariants({
+                      variant:
+                        link.title.toLowerCase() === currentPanel
+                          ? "default"
+                          : "ghost",
+                      size: "icon",
+                    }),
                     "h-9 w-9",
-                    link.variant === "default" &&
+                    link.title.toLowerCase() === currentPanel &&
                       "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white",
                   )}
                 >
@@ -61,10 +67,16 @@ export function Nav({ links, isCollapsed, className }: NavProps) {
           ) : (
             <Link
               key={index}
-              href="#"
+              href={`/sac-head?currentPanel=${link.title.toLowerCase()}`}
               className={cn(
-                buttonVariants({ variant: link.variant, size: "sm" }),
-                link.variant === "default" &&
+                buttonVariants({
+                  variant:
+                    link.title.toLowerCase() === currentPanel
+                      ? "default"
+                      : "ghost",
+                  size: "sm",
+                }),
+                link.title.toLowerCase() === currentPanel &&
                   "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                 "justify-start",
               )}
@@ -75,7 +87,7 @@ export function Nav({ links, isCollapsed, className }: NavProps) {
                 <span
                   className={cn(
                     "ml-auto",
-                    link.variant === "default" &&
+                    link.title.toLowerCase() === currentPanel &&
                       "text-background dark:text-white",
                   )}
                 >
