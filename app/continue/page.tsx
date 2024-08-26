@@ -59,7 +59,8 @@ const page = ({
               </div>
             </Link>
             <Link
-              href={"/continue?login=Club Admin"}
+              // href={"/continue?login=Club Admin"}
+              href={"#"}
               className="w-full max-w-96 rounded-lg bg-white px-10 py-4 shadow-lg transition-all hover:-translate-y-4 hover:shadow-2xl"
             >
               <Image
@@ -79,7 +80,8 @@ const page = ({
               </div>
             </Link>
             <Link
-              href={"/continue?login=Student"}
+              // href={"/continue?login=Student"}
+              href={"#"}
               className="w-full max-w-96 rounded-lg bg-white px-10 py-4 shadow-lg transition-all hover:-translate-y-4 hover:shadow-2xl"
             >
               <Image
