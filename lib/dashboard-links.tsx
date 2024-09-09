@@ -9,6 +9,11 @@ interface ItemLinks {
 
 export const SacHeadDashboardLink: ItemLinks[] = [
   {
+    title: "Organisation",
+    label: "",
+    icon: Settings,
+  },
+  {
     title: "Dashboard",
     label: "118",
     icon: LayoutDashboardIcon,

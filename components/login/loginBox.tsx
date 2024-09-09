@@ -1,10 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import { FaPlus } from "react-icons/fa6";
 import EmailForm from "./EmailForm";
+import { useState } from "react";
+import CreateOrganisation from "./createOrganisation";
+import { Button } from "../ui/button";
 
 const LoginBox = ({ loginFor }: { loginFor: string }) => {
+  const [createOrganisation, setCreateOrganisation] = useState<boolean>(true);
+
   return (
     <div className="absolute top-32 mx-auto w-full max-w-[500px] rounded-lg border border-black bg-white p-4">
       <div className="absolute right-2 top-2 flex w-full items-center justify-end">
@@ -30,8 +37,26 @@ const LoginBox = ({ loginFor }: { loginFor: string }) => {
         </h2>
       </div>
       <div className="my-8 px-6">
-        <EmailForm loginFor={loginFor} />
+        {loginFor === "SAC Head" && createOrganisation ? (
+          <CreateOrganisation />
+        ) : (
+          <EmailForm loginFor={loginFor} />
+        )}
       </div>
+      {loginFor === "SAC Head" && (
+        <div className="flex w-full items-center justify-end">
+          <Button
+            variant={"link"}
+            onClick={() => setCreateOrganisation((preValue) => !preValue)}
+          >
+            {createOrganisation ? (
+              <span>Login as {loginFor}</span>
+            ) : (
+              <span>Create Organisation</span>
+            )}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

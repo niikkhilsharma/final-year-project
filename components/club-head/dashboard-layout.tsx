@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 
 import type { User } from "@prisma/client";
@@ -9,10 +8,10 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsTrigger, TabsList, TabsContent } from "../ui/tabs";
+import { Separator } from "../ui/separator";
 
 import { Nav } from "./nav";
 import {
@@ -32,7 +31,7 @@ interface LayoutProps {
   currentPanel: string;
 }
 
-export function DashBoardLayout({
+export function ClubHeadLayout({
   user,
   defaultLayout = [30, 70],
   defaultCollapsed = false,

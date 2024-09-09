@@ -4,8 +4,6 @@ import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import LoginBox from "@/components/login/loginBox";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 
 const page = ({
   params,
@@ -21,7 +19,6 @@ const page = ({
 
   return (
     <>
-      <Navbar />
       <div
         className={cn(
           "relative flex w-full items-center justify-center bg-secondary",
@@ -44,7 +41,7 @@ const page = ({
             >
               <Image
                 src={"/assets/images/sac-head.png"}
-                alt="Club Admin"
+                alt="Club Head"
                 width={200}
                 height={200}
                 className="h-full w-full"
@@ -59,13 +56,12 @@ const page = ({
               </div>
             </Link>
             <Link
-              // href={"/continue?login=Club Admin"}
-              href={"#"}
+              href={"/continue?login=Club Head"}
               className="w-full max-w-96 rounded-lg bg-white px-10 py-4 shadow-lg transition-all hover:-translate-y-4 hover:shadow-2xl"
             >
               <Image
                 src={"/assets/images/student.png"}
-                alt="Club Admin"
+                alt="Club Head"
                 width={200}
                 height={200}
                 className="h-full w-full"
@@ -75,18 +71,17 @@ const page = ({
                   Continue As <MoveRight />
                 </p>
                 <h2 className="tracking-tigh text-2xl font-bold leading-7">
-                  Club Admin
+                  Club Head
                 </h2>
               </div>
             </Link>
             <Link
-              // href={"/continue?login=Student"}
-              href={"#"}
+              href={"/continue?login=Student"}
               className="w-full max-w-96 rounded-lg bg-white px-10 py-4 shadow-lg transition-all hover:-translate-y-4 hover:shadow-2xl"
             >
               <Image
                 src={"/assets/images/student.png"}
-                alt="Club Admin"
+                alt="student"
                 width={200}
                 height={200}
                 className="h-full w-full"
@@ -104,7 +99,6 @@ const page = ({
         </MaxWidthWrapper>
         {loginFor && <LoginBox loginFor={loginFor} />}
       </div>
-      <Footer />
     </>
   );
 };

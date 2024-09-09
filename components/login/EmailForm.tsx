@@ -19,14 +19,12 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 const formSchema = z.object({
-  email: z
-    .string()
-    .min(7, {
-      message: "Email must be at least 7 characters.",
-    })
-    .refine((email) => email.endsWith("@rtu.ac.in"), {
-      message: "Please enter your work email.",
-    }),
+  email: z.string().min(7, {
+    message: "Email must be at least 7 characters.",
+  }),
+  // .refine((email) => email.endsWith("@rtu.ac.in"), {
+  //   message: "Please enter your work email.",
+  // }),
 });
 
 const EmailForm = ({ loginFor }: { loginFor: string }) => {
@@ -42,17 +40,17 @@ const EmailForm = ({ loginFor }: { loginFor: string }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await signIn("resend", {
-      email: values.email,
-      redirect: false,
-      callbackUrl: "/" + redirectUrl + `?role=SACHEAD&selectedPanel=dashboard`,
-    });
-    setMailSent(true);
-
     toast({
       title: "Mail: Sent Successfully",
       description: "Kindly check your gmail account.",
     });
+
+    await signIn("resend", {
+      email: values.email,
+      redirect: false,
+      callbackUrl: "/" + redirectUrl + `?currentPanel=dashboard`,
+    });
+    setMailSent(true);
   }
 
   return (

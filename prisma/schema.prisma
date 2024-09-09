@@ -1,41 +1,36 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  url       = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZmQ3YmYyNjMtMGVmOS00MTIwLTk5NzctNzIyMmVhZWQzM2I0IiwidGVuYW50X2lkIjoiNjJjY2VlMDA3ZGY4ZDgyNTQ1Yjg3Y2E2NDQ4NDE4ZTg4Mzc2YjFiOTYwZTI1Nzc2ODNlYTNjOGQwOTFjM2Y3NSIsImludGVybmFsX3NlY3JldCI6IjdlM2RiNDVlLTZjZmYtNDg5Yy05OGFhLWY1ODZmYTZkMTQyZCJ9.dLY1eWrTWLL_FNeDxQ5BFyGCFLa3eG2YXWXSAbJ-bEo"
   directUrl = env("SUPABASE_DIRECT_URL")
 }
 
 enum UserRole {
-  USER
+  STUDENT
   CLUBHEAD
   SACHEAD
 }
 
 model User {
-  id            String          @id @default(cuid())
-  name          String?
-  email         String          @unique
-  emailVerified DateTime?
-  image         String?
-  role          UserRole?
-  collegeId     String?
-  accounts      Account[]
-  sessions      Session[]
+  id             String          @id @default(cuid())
+  name           String?
+  email          String          @unique
+  emailVerified  DateTime?
+  image          String?
+  role           UserRole?
+  organisationId String?
+  accounts       Account[]
+  sessions       Session[]
+  identityDocUrl String?
   // Optional for WebAuthn support
-  Authenticator Authenticator[]
+  Authenticator  Authenticator[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  College   College?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  Organisation Organisation?
 }
 
 model Account {
@@ -93,19 +88,37 @@ model Authenticator {
   @@id([userId, credentialID])
 }
 
-model College {
-  collegeId   String  @unique @default(cuid())
-  createdBy   String  @unique
-  collegeName String
-  city        String
-  state       String
-  country     String
-  image       String?
-  websiteUrl  String
-  about       String?
+model Organisation {
+  organisationId String @unique @default(cuid())
+  createdBy      String @unique
+  collegeName    String
+  city           String
+  state          String
+  country        String
+  image          String
+  websiteUrl     String
+  about          String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   user User @relation(fields: [createdBy], references: [email], onDelete: NoAction)
+}
+
+enum ClubCategory {
+  Technical
+  Cultural
+  Sports
+}
+
+model Clubs {
+  organisationId    String       @unique
+  createdBy         String       @unique
+  name              String
+  coordinatorName   String
+  coCoordinatorName String
+  category          ClubCategory
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
