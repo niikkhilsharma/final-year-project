@@ -22,21 +22,16 @@ const ClubHeadPage = async ({
   if (!user.role) {
     await prisma.user.update({
       where: { id: user.id },
-      data: {
-        role: "CLUBHEAD",
-        // name: searchParams.fName,
-        // identityDocUrl: searchParams.identityDocUrl,
-        // organisationId: organisationId,
-      },
+      data: { role: "CLUBHEAD" },
     });
-
     redirect(`/club-head/create`);
-
-    // redirect(
-    //   `/club-head?currentPanel=${searchParams.currentPanel || "dashboard"}`,
-    // );
-  } else if (searchParams?.role) {
-    redirect(`/sac-head?currentPanel=${searchParams.currentPanel}`);
+  } else {
+    const userDetails = await prisma.user.findUnique({
+      where: { id: user.id },
+    });
+    if (!userDetails?.organisationId) {
+      redirect("/club-head/create");
+    }
   }
 
   return (
