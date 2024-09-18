@@ -209,7 +209,7 @@ const OrganisationPage = ({ organisationId }: { organisationId: string }) => {
                 </div>
               </div>
               <div className="max-w-md md:max-w-screen-sm">
-                <h1 className="text-xl font-semibold">FAQ'S</h1>
+                <h1 className="text-xl font-semibold">FAQ&apos;S</h1>
                 <Accordion type="single" collapsible>
                   <AccordionItem value="item-1">
                     <AccordionTrigger>Is it accessible?</AccordionTrigger>
