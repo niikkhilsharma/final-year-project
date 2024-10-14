@@ -35,15 +35,13 @@ const ClubHeadPage = async ({
   }
 
   return (
-    <div>
-      <ClubHeadLayout
-        defaultLayout={[20, 32, 48]}
-        defaultCollapsed={false}
-        navCollapsedSize={4}
-        user={user}
-        currentPanel={currentPanel}
-      />
-    </div>
+    <ClubHeadLayout
+      defaultLayout={[20, 32, 48]}
+      defaultCollapsed={false}
+      navCollapsedSize={4}
+      user={user}
+      currentPanel={currentPanel}
+    />
   );
 };
 

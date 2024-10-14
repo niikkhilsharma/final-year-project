@@ -8,6 +8,7 @@ export async function POST(req: Request) {
     where: { email: details.email },
     data: {
       name: details.name,
+      image: details.image,
     },
   });
   console.log(newUser);
