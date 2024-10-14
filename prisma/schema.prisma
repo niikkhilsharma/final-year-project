@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZmQ3YmYyNjMtMGVmOS00MTIwLTk5NzctNzIyMmVhZWQzM2I0IiwidGVuYW50X2lkIjoiNjJjY2VlMDA3ZGY4ZDgyNTQ1Yjg3Y2E2NDQ4NDE4ZTg4Mzc2YjFiOTYwZTI1Nzc2ODNlYTNjOGQwOTFjM2Y3NSIsImludGVybmFsX3NlY3JldCI6IjdlM2RiNDVlLTZjZmYtNDg5Yy05OGFhLWY1ODZmYTZkMTQyZCJ9.dLY1eWrTWLL_FNeDxQ5BFyGCFLa3eG2YXWXSAbJ-bEo"
-  directUrl = env("SUPABASE_DIRECT_URL")
+  url       = env("ACCELERATE_DATABASE_URL")
+  directUrl = env("SUPABASE_DATABASE_URL")
 }
 
 enum UserRole {
