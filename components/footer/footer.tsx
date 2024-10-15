@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="">
               <Image
                 src={
-                  "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/613fb693f3320e648484a654_ui-logo-light.svg"
+                  "/assets/images/main-logo1.png"
                 }
                 width={250}
                 height={250}

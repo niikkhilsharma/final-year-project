@@ -13,18 +13,21 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-primary bg-white">
+    <div className="sticky top-0 z-25 w-full border-b border-primary bg-white">
       <MaxWidthWrapper className="flex items-center justify-between px-4 py-5">
         <div className="flex items-center">
           <Link href={"/"}>
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/613a93a8e073f3860d5cfbcc_logo-nav.svg"
+                "/assets/images/main-logo1.png"
               }
-              width={200}
-              height={200}
+              width={120}
+              height={120}
               alt="logo"
             />
+            <p className="text-center font-sans text-base font-medium mt-2">
+      Student Activity Center
+    </p>
           </Link>
           <div className="ml-20">
             <ul className="text-md flex items-center gap-10 font-sans text-base font-medium">
