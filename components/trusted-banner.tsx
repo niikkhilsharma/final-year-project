@@ -17,13 +17,13 @@ const TrustedBanner = () => {
 
       <div className="-my-1 bg-[#158d71] py-20">
         <h3 className="text-center text-[0.83rem] font-semibold uppercase tracking-widest text-white">
-          trusted by research teams at
+          trusted by colleges
         </h3>
         <MaxWidthWrapper className="mb-20 mt-16 px-10">
           <div className="flex items-center justify-between gap-6">
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/6153695dec7fa273df80f330_adobe.svg"
+                  "/assets/images/rtu-logo.png"
               }
               width={115}
               height={115}
@@ -31,7 +31,7 @@ const TrustedBanner = () => {
             />
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/615369e995415c3701d3391d_spotify.svg"
+                "/assets/images/iit-jammu-logo.png"
               }
               width={115}
               height={115}
@@ -39,7 +39,7 @@ const TrustedBanner = () => {
             />
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/613bdbf6ba5cf7e09493fbef_pinterest.svg"
+                "/assets/images/iit-bombay-logo.png"
               }
               width={115}
               height={115}
@@ -47,7 +47,7 @@ const TrustedBanner = () => {
             />
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/613bdbf54fc6057579ed1e05_intuit.svg"
+                "/assets/images/nit-srinagar-logo.png"
               }
               width={115}
               height={115}
@@ -55,7 +55,7 @@ const TrustedBanner = () => {
             />
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/613bdbf54fc6057579ed1e05_intuit.svg"
+                "https://gyaanarth.com/wp-content/uploads/2022/03/TRANSPARENTiitdlogo.png"
               }
               width={115}
               height={115}
@@ -63,7 +63,7 @@ const TrustedBanner = () => {
             />
             <Image
               src={
-                "https://cdn.prod.website-files.com/59ace8427353c50001765cbd/615369e9e2245cc559b270e2_amazon.svg"
+                "/assets/images/mit-college-logo.png"
               }
               width={115}
               height={115}

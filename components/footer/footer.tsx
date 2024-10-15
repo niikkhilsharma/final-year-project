@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex items-center justify-between">
             <div className="w-1/2 pl-5">
               <h1 className="font-mackinac text-[2.5rem] leading-tight tracking-wide text-white">
-                Talk to users today. Seriously, we&apos;re fast.
+                Connect with college communities and let&apos;s grow together.
               </h1>
               <div className="mt-4 flex items-center gap-4">
                 <Link
@@ -68,67 +68,67 @@ const Footer = () => {
             <div className="grid w-full justify-between gap-28 lg:grid-cols-4">
               <div>
                 <h3 className="mb-4 text-xs font-semibold uppercase leading-loose tracking-widest text-[#65B8A2]">
-                  solutions
+                  Students
                 </h3>
                 <ul className="space-y-2 text-sm leading-loose text-white">
-                  <li>Recruit</li>
-                  <li>Research Hub</li>
-                  <li>Pricing</li>
-                  <li>Integrations</li>
-                  <li>Product Updates</li>
-                  <li>Security</li>
+                  <li>Join Clubs</li>
+                  <li>Club activites</li>
+                  <li>Participate in club activites</li>
+                  <li>Notifications</li>
+                  <li>Updates</li>
+                  <li>My Achivements</li>
                   <li className="leading-snug">
-                    User Interviews vs. <br /> UserTesting
+                    {/* User Interviews vs. <br /> UserTesting */}
                   </li>
-                  <li>User Interviews vs. UserZoom</li>
+                  {/* <li>User Interviews vs. UserZoom</li> */}
                   <li>🌟 Get a Demo</li>
                 </ul>
               </div>
               <div>
                 <h3 className="mb-4 text-xs font-semibold uppercase leading-tight tracking-widest text-[#65B8A2]">
-                  Researcher Resources
+                  SAC Head
                 </h3>
                 <ul className="space-y-2 text-sm leading-loose text-white">
-                  <li>Recruit</li>
-                  <li>Research Hub</li>
-                  <li>Pricing</li>
-                  <li>Integrations</li>
-                  <li>Product Updates</li>
-                  <li>Security</li>
+                  <li>College</li>
+                  <li>College Clubs</li>
+                  <li>Club Coordinators</li>
+                  <li>Notifications</li>
+                  <li>Updates</li>
+                  <li>Achievements</li>
                   <li className="leading-snug">
-                    User Interviews vs. <br /> UserTesting
+                    {/* User Interviews vs. <br /> UserTesting */}
                   </li>
-                  <li>Incentive Calculator</li>
+                  {/* <li>Incentive Calculator</li> */}
                   <li>🌟 Get a Demo</li>
                 </ul>
               </div>
               <div>
                 <h3 className="mb-4 text-xs font-semibold uppercase leading-tight tracking-widest text-[#65B8A2]">
-                  Participant Resources
+                  Club Coordinators
                 </h3>
                 <ul className="space-y-2 text-sm leading-loose text-white">
-                  <li>Recruit</li>
-                  <li>Research Hub</li>
-                  <li>Pricing</li>
-                  <li>Integrations</li>
-                  <li>Product Updates</li>
-                  <li>Security</li>
+                  <li>College</li>
+                  <li>Clubs</li>
+                  <li>Club Activites</li>
+                  <li>Notifications</li>
+                  <li>Club Activites</li>
+                  {/* <li>Security</li> */}
                   <li className="leading-snug">
-                    User Interviews vs. <br /> UserTesting
+                    {/* User Interviews vs. <br /> UserTesting */}
                   </li>
-                  <li>User Interviews vs. UserZoom</li>
+                  {/* <li>User Interviews vs. UserZoom</li> */}
                   <li>🌟 Get a Demo</li>
                 </ul>
               </div>
               <div>
                 <h3 className="mb-4 text-xs font-semibold uppercase leading-tight tracking-widest text-[#65B8A2]">
-                  Company
+                  SAC Framework
                 </h3>
                 <ul className="space-y-2 text-sm leading-loose text-white">
                   <li>About Us</li>
-                  <li>Case Studies</li>
+                  <li>Testimonials</li>
                   <li>Partnerships</li>
-                  <li>Careers</li>
+                  {/* <li>Careers</li> */}
                 </ul>
               </div>
             </div>
